@@ -1,0 +1,37 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+div {
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    padding: 10px;
+}
+
+.headerContainer {
+    min-width: 48%;
+    min-height: 10%;
+    display: block;
+}
+
+.headerDiv {
+    background-color: orange;
+    width: auto;
+    position: relative;
+    display: inline-block;
+}
+
+.mainDiv {
+    background-color: yellow;
+    min-width: 100%;
+    min-height: 40%;
+}
+
+.bottomDiv {
+    background-color: dodgerblue;
+    min-width: 33%;
+    min-height: 30%;
+    display: inline-block;
+}
