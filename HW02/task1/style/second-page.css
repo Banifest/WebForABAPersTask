@@ -8,6 +8,8 @@ html, body, table {
     background-color: orange;
     height: 10%;
     width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 #yellow-box {
@@ -30,5 +32,6 @@ html, body, table {
 
 th {
     background-color: inherit;
-    border-width: 20px;
+    margin-right: 2%;
+    margin-left: 2%;
 }
