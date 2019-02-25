@@ -11,14 +11,15 @@ div {
 }
 
 .headerContainer {
-    min-width: 48%;
+    width: auto;
     min-height: 10%;
     display: block;
 }
 
 .headerDiv {
     background-color: orange;
-    width: auto;
+    min-width: 48%;
+    min-height: 100%;
     position: relative;
     display: inline-block;
 }
