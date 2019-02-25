@@ -1,0 +1,36 @@
+/*body, html {*/
+/*height: 98%;*/
+/*}*/
+
+header {
+    width: 90%;
+    height: 15%;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: orange;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+}
+
+menu {
+    position: fixed;
+    width: 10%;
+    height: 600px;
+    background: transparent;
+}
+
+.centralBlock {
+    margin-left: 15%;
+    background-color: aliceblue;
+}
+
+footer {
+    text-align: center;
+    margin-top: 600px;
+    width: 90%;
+    height: 15%;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: red;
+    border-radius: 10px 10px 0 0;
+}
