@@ -1,0 +1,22 @@
+.square {
+    height: 300px;
+    width: 300px;
+    position: fixed;
+}
+
+#Blue {
+    background-color: blue;
+}
+
+#Green {
+    background-color: green;
+    z-index: 1;
+    left: 150px;
+    top: 150px;
+}
+
+#Red {
+    background-color: red;
+    left: 300px;
+    top: 300px;
+}
