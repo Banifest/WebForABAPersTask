@@ -1,4 +1,37 @@
-.mainBlock {
+html, body {
+    margin: 0;
+    height: 96%;
+}
+
+header {
     height: 10%;
     width: 100%;
+    background-color: rgba(149, 255, 125, 0.50);
+    position: fixed;
+}
+
+header:hover {
+    background-color: rgba(255, 125, 6, 0.50);
+}
+
+img {
+    display: inline-block;
+    max-height: 80%;
+    vertical-align: middle;
+}
+
+#leftImage {
+    float: left;
+}
+
+#rightImage {
+    float: right;
+}
+
+#mainBlock {
+
+}
+
+footer {
+
 }
