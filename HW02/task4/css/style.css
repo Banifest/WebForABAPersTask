@@ -29,9 +29,28 @@ img {
 }
 
 #mainBlock {
+    position: relative;
+    box-sizing: border-box;
+    top: 11%;
+    /*padding-top: 11%;*/
+    background-color: orangered;
+    display: flex;
+    justify-content: space-evenly;
+}
 
+#firstColumn {
+    display: inline-block;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#secondColumn {
+    display: inline-block;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 footer {
+    width: 100%;
 
 }
