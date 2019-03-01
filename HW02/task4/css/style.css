@@ -36,6 +36,7 @@ img {
     background-color: orangered;
     display: flex;
     justify-content: space-evenly;
+
 }
 
 #firstColumn {
@@ -51,6 +52,7 @@ img {
 }
 
 footer {
+    margin-top: 12.2%;
     width: 100%;
     height: 15%;
     background-color: rgba(0, 255, 255, 0.50);
