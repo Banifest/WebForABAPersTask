@@ -1,36 +1,119 @@
+html, body {
+    height: 96%;
+}
+
 .container {
+    height: 96%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: stretch;
     margin-bottom: 2%;
     margin-top: 2%;
+    flex-flow: row wrap;
 }
 
-.item {
-    display: inline-flex;
-    margin-left: 1%;
-    margin-right: 1%;
+@media all and (width: 1920px) and (height: 1080px) {
+    .item {
+        display: inline-flex;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    #red-box {
+        background-color: red;
+        width: 28%;
+        height: 10%;
+    }
+
+    #orange-box {
+        background-color: orange;
+        width: 67%;
+        height: 10%;
+    }
+
+    #green-box {
+        background-color: green;
+        width: 97%;
+        height: 60%;
+    }
+
+    #brown-box {
+        background-color: brown;
+        width: 31%;
+        height: 27%;
+    }
+
+    #blue-box {
+        background-color: blue;
+        width: 31%;
+        height: 27%;
+    }
+
+    #purple-box {
+        background-color: purple;
+        width: 31%;
+        height: 27%;
+    }
 }
 
-#red-box {
-    background-color: red;
-}
+@media only screen
+and ( (min-device-width :
 
-#orange-box {
-    background-color: orange;
-}
+375px
 
-#green-box {
-    background-color: green;
-}
+)
+    and
 
-#brown-box {
-    background-color: brown;
-}
+(max-device-width :
 
-#blue-box {
-    background-color: blue;
-}
+812px
 
-#purple {
-    background-color: purple;
+)
+    and
+
+(-webkit-device-pixel-ratio :
+
+3) or
+
+() ) {
+    .item {
+        display: inline-flex;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    #red-box {
+        background-color: red;
+        width: 28%;
+        height: 10%;
+    }
+
+    #orange-box {
+        background-color: orange;
+        width: 67%;
+        height: 10%;
+    }
+
+    #green-box {
+        background-color: green;
+        width: 97%;
+        height: 60%;
+    }
+
+    #brown-box {
+        background-color: brown;
+        width: 31%;
+        height: 27%;
+    }
+
+    #blue-box {
+        background-color: blue;
+        width: 31%;
+        height: 27%;
+    }
+
+    #purple-box {
+        background-color: purple;
+        width: 31%;
+        height: 27%;
+    }
 }
