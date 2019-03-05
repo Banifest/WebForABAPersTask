@@ -1,6 +1,6 @@
 .mainContainer {
     display: flex;
-    flex: 2;
+    flex: 2px;
     flex-flow: row wrap;
     align-content: stretch;
 }

@@ -1,11 +1,13 @@
-html, body {
-    margin: 0;
-    height: 96%;
-}
+/*html, body {*/
+/*margin: 0;*/
+/*height: 96%;*/
+/*}*/
 
 header {
     height: 10%;
     width: 100%;
+    top: 0;
+    vertical-align: middle;
     background-color: rgba(149, 255, 125, 0.50);
     position: fixed;
 }
@@ -15,9 +17,10 @@ header:hover {
 }
 
 img {
+    transform: translateY(12.5%);
+    position: relative;
     display: inline-block;
-    max-height: 80%;
-    vertical-align: middle;
+    height: 80%;
 }
 
 #leftImage {
@@ -29,32 +32,37 @@ img {
 }
 
 #mainBlock {
-    position: relative;
-    box-sizing: border-box;
-    top: 10.9%;
-    /*padding-top: 11%;*/
+    margin-top: 20%;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 70vh;
     background-color: orangered;
+    position: relative;
     display: flex;
     justify-content: space-evenly;
-
 }
 
 #firstColumn {
+    top: 10.9%;
     display: inline-block;
     margin-left: 15%;
     margin-right: 15%;
+    border-right: 6px solid #52ffbd;
+    border-left: 6px solid green;
 }
 
 #secondColumn {
     display: inline-block;
     margin-left: 15%;
     margin-right: 15%;
+    border-right: 6px solid #52ffbd;
+    border-left: 6px solid green;
 }
 
 footer {
-    margin-top: 8.8%;
     width: 100%;
     height: 15%;
+    text-align: center;
     background-color: rgba(0, 255, 255, 0.50);
 }
 
