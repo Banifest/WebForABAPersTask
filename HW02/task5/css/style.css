@@ -55,26 +55,11 @@ html, body {
     }
 }
 
+/* Portrait and Landscape */
 @media only screen
-and ( (min-device-width :
-
-375px
-
-)
-    and
-
-(max-device-width :
-
-812px
-
-)
-    and
-
-(-webkit-device-pixel-ratio :
-
-3) or
-
-() ) {
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2) {
     .item {
         display: inline-flex;
         margin-left: 1%;
@@ -83,37 +68,133 @@ and ( (min-device-width :
 
     #red-box {
         background-color: red;
-        width: 28%;
-        height: 10%;
+        width: 97%;
+        height: 65%;
+        order: 3;
     }
 
     #orange-box {
-        background-color: orange;
-        width: 67%;
-        height: 10%;
+        visibility: hidden;
     }
 
     #green-box {
         background-color: green;
         width: 97%;
-        height: 60%;
+        height: 10%;
+        order: 1;
     }
 
     #brown-box {
-        background-color: brown;
-        width: 31%;
-        height: 27%;
+        visibility: hidden;
     }
 
     #blue-box {
-        background-color: blue;
-        width: 31%;
-        height: 27%;
+        visibility: hidden;
     }
 
     #purple-box {
         background-color: purple;
-        width: 31%;
-        height: 27%;
+        width: 97%;
+        height: 10%;
+        order: 2;
     }
+}
+
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3) {
+    .item {
+        display: inline-flex;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    #red-box {
+        background-color: red;
+        width: 97%;
+        height: 65%;
+        order: 3;
+    }
+
+    #orange-box {
+        visibility: hidden;
+    }
+
+    #green-box {
+        background-color: green;
+        width: 97%;
+        height: 10%;
+        order: 1;
+    }
+
+    #brown-box {
+        visibility: hidden;
+    }
+
+    #blue-box {
+        visibility: hidden;
+    }
+
+    #purple-box {
+        background-color: purple;
+        width: 97%;
+        height: 10%;
+        order: 2;
+    }
+}
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+    .item {
+        display: inline-flex;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    #orange-box {
+        background-color: orange;
+        width: 32%;
+        height: 10%;
+        order: 1;
+    }
+
+    #purple-box {
+        background-color: purple;
+        width: 63%;
+        height: 10%;
+        order: 2;
+    }
+
+    #red-box {
+        background-color: red;
+        width: 97%;
+        height: 55%;
+        order: 3;
+    }
+
+    #green-box {
+        background-color: green;
+        width: 47.5%;
+        height: 30%;
+        order: 4;
+    }
+
+    #brown-box {
+        visibility: hidden;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #blue-box {
+        background-color: blue;
+        width: 47.5%;
+        height: 30%;
+        order: 5;
+    }
+
+
 }
