@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,110 +20,151 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <div class="row">
-                <h2>Billing address</h2>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label style="font-weight: bold">First name</label>
-                    <div class="input-group mb-3">
-                        <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
-                               type="text">
+            <form action="#" method="post">
+                <div class="row">
+                    <h2>Billing address</h2>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label style="font-weight: bold">First name</label>
+                        <div class="input-group mb-3">
+                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label style="font-weight: bold">Last name</label>
+                        <div class="input-group mb-3">
+                            <input aria-describedby="basic-addon1" aria-label="Last name" class="form-control"
+                                   type="text">
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <label style="font-weight: bold">Last name</label>
-                    <div class="input-group mb-3">
-                        <input aria-describedby="basic-addon1" aria-label="Last name" class="form-control"
-                               type="text">
+                <label style="font-weight: bold">Username</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input aria-describedby="basic-addon1" aria-label="Username" class="form-control"
+                           placeholder="Username"
+                           type="text">
+                </div>
+
+                <label><span style="font-weight: bold">Email</span> (Optional)</label>
+                <div class="input-group mb-3">
+                    <input aria-describedby="basic-addon2" aria-label="Email(Optional)" class="form-control"
+                           placeholder="you@example.com"
+                           type="email">
+                </div>
+
+                <label style="font-weight: bold">Address</label>
+                <div class="input-group mb-3">
+                    <input aria-describedby="basic-addon3" class="form-control" placeholder="1234 Main St" type="text">
+                </div>
+
+                <label><span style="font-weight: bold">Address 2</span> (Optional)</label>
+                <div class="input-group mb-3">
+                    <input aria-describedby="basic-addon3" class="form-control" placeholder="Apartment or suite"
+                           type="text">
+                </div>
+
+                <div class="row">
+                    <div class="col-5">
+                        <label style="font-weight: bold">Country</label>
+                        <div class="input-group mb-3">
+                            <select class="custom-select">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label style="font-weight: bold">State</label>
+                        <div class="input-group mb-3">
+                            <select class="custom-select">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <label style="font-weight: bold">Zip</label>
+                        <div class="input-group mb-3">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <!--horizontal-->
+                <hr>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" id="customCheck1" type="checkbox">
+                    <label class="custom-control-label" for="customCheck1">Shipping address is the same as my billing
+                        address</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" id="customCheck1" type="checkbox">
+                    <label class="custom-control-label" for="customCheck1">Save this information for next time</label>
+                </div>
+                <!--horizontal-->
+                <hr>
+                <label style="font-weight: bold"><h3>Payment</h3></label>
+                <div class="custom-control custom-radio">
+                    <input checked class="custom-control-input" id="customRadioInline1" name="customRadioInline1"
+                           type="radio">
+                    <label class="custom-control-label" for="customRadioInline1">Credit card</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" id="customRadioInline2" name="customRadioInline1" type="radio">
+                    <label class="custom-control-label" for="customRadioInline2">Debit card</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" id="customRadioInline2" name="customRadioInline1" type="radio">
+                    <label class="custom-control-label" for="customRadioInline2">PayPal</label>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label style="font-weight: bold">Name on card</label>
+                        <div class="input-group mb-3">
+                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label style="font-weight: bold">Credit card number</label>
+                        <div class="input-group mb-3">
+                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
+                                   type="text">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <label style="font-weight: bold">Username</label>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
-                </div>
-                <input aria-describedby="basic-addon1" aria-label="Username" class="form-control" placeholder="Username"
-                       type="text">
-            </div>
-
-            <label><span style="font-weight: bold">Email</span> (Optional)</label>
-            <div class="input-group mb-3">
-                <input aria-describedby="basic-addon2" aria-label="Email(Optional)" class="form-control"
-                       placeholder="you@example.com"
-                       type="email">
-            </div>
-
-            <label style="font-weight: bold">Address</label>
-            <div class="input-group mb-3">
-                <input aria-describedby="basic-addon3" class="form-control" placeholder="1234 Main St" type="text">
-            </div>
-
-            <label><span style="font-weight: bold">Address 2</span> (Optional)</label>
-            <div class="input-group mb-3">
-                <input aria-describedby="basic-addon3" class="form-control" placeholder="Apartment or suite"
-                       type="text">
-            </div>
-
-            <div class="row">
-                <div class="col-5">
-                    <label style="font-weight: bold">Country</label>
-                    <div class="input-group mb-3">
-                        <select class="custom-select">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                <div class="row">
+                    <div class="col-3">
+                        <label style="font-weight: bold">Expiration</label>
+                        <div class="input-group mb-3">
+                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
+                                   type="text">
+                        </div>
                     </div>
-                </div>
-                <div class="col-4">
-                    <label style="font-weight: bold">State</label>
-                    <div class="input-group mb-3">
-                        <select class="custom-select">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                    <div class="col-3">
+                        <label style="font-weight: bold">СVV</label>
+                        <div class="input-group mb-3">
+                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
+                                   maxlength="3" type="password">
+                        </div>
                     </div>
+                    <div class="col-6"></div>
                 </div>
-                <div class="col-2">
-                    <label style="font-weight: bold">Zip</label>
-                    <div class="input-group mb-3">
-                        <input type="text">
-                    </div>
+                <div class="input-group mb-3">
+                    <input class="btn btn-primary btn-block" type="submit"
+                           value="Continue to checkout">
                 </div>
-                <div class="col-1"></div>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <label class="form-check-label">
-                    Shipping address is the same as my billing address
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <label class="form-check-label">
-                    Save this information for next time
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="">
-                <label class="form-check-label">
-                    Shipping address is the same as my billing address
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="">
-                <label class="form-check-label">
-                    Save this information for next time
-                </label>
-            </div>
-
+            </form>
         </div>
         <div class="col">
             <div class="card-2">
