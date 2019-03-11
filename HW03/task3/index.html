@@ -19,6 +19,17 @@
 <body>
 <div class="container">
     <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <img alt="img/bootstrap-solid.svg" class="rounded" height="100px" src="img/bootstrap-solid.svg">
+                <h1>Checkout form</h1>
+                <p>Below is an example form build entirely with Bootstrap's form controls. Each required form group has
+                    a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
         <div class="col-8">
             <form action="#" method="post">
                 <div class="row">
@@ -28,15 +39,23 @@
                     <div class="col">
                         <label style="font-weight: bold">First name</label>
                         <div class="input-group mb-3">
-                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
-                                   type="text">
+                            <input aria-describedby="inputGroupPrepend" class="form-control"
+                                   id="validationCustomFirstName"
+                                   placeholder="" required type="text">
+                            <div class="invalid-feedback">
+                                Please enter a first name.
+                            </div>
                         </div>
                     </div>
                     <div class="col">
                         <label style="font-weight: bold">Last name</label>
                         <div class="input-group mb-3">
-                            <input aria-describedby="basic-addon1" aria-label="Last name" class="form-control"
-                                   type="text">
+                            <input aria-describedby="inputGroupPrepend" class="form-control"
+                                   id="validationCustomLastName"
+                                   placeholder="" required type="text">
+                            <div class="invalid-feedback">
+                                Please enter a first name.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,16 +64,16 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">@</span>
                     </div>
-                    <input aria-describedby="basic-addon1" aria-label="Username" class="form-control"
+                    <input aria-describedby="inputGroupPrepend" aria-label="Username" class="form-control"
                            placeholder="Username"
                            type="text">
                 </div>
-
-                <label><span style="font-weight: bold">Email</span> (Optional)</label>
-                <div class="input-group mb-3">
-                    <input aria-describedby="basic-addon2" aria-label="Email(Optional)" class="form-control"
-                           placeholder="you@example.com"
-                           type="email">
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><span style="font-weight: bold">Email</span> (Optional)</label>
+                    <div class="input-group mb-3">
+                        <input aria-describedby="emailHelp" class="form-control"
+                               id="exampleInputEmail1" placeholder="you@example.com" type="email">
+                    </div>
                 </div>
 
                 <label style="font-weight: bold">Address</label>
@@ -94,7 +113,10 @@
                     <div class="col-2">
                         <label style="font-weight: bold">Zip</label>
                         <div class="input-group mb-3">
-                            <input type="text">
+                            <input class="form-control" type="text">
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid zip.
                         </div>
                     </div>
                     <div class="col-1"></div>
@@ -107,8 +129,8 @@
                         address</label>
                 </div>
                 <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" id="customCheck1" type="checkbox">
-                    <label class="custom-control-label" for="customCheck1">Save this information for next time</label>
+                    <input class="custom-control-input" id="customCheck2" type="checkbox">
+                    <label class="custom-control-label" for="customCheck2">Save this information for next time</label>
                 </div>
                 <!--horizontal-->
                 <hr>
@@ -123,17 +145,18 @@
                     <label class="custom-control-label" for="customRadioInline2">Debit card</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input" id="customRadioInline2" name="customRadioInline1" type="radio">
-                    <label class="custom-control-label" for="customRadioInline2">PayPal</label>
+                    <input class="custom-control-input" id="customRadioInline3" name="customRadioInline1" type="radio">
+                    <label class="custom-control-label" for="customRadioInline3">PayPal</label>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col">
                         <label style="font-weight: bold">Name on card</label>
                         <div class="input-group mb-3">
-                            <input aria-describedby="basic-addon1" aria-label="First name" class="form-control"
+                            <input aria-describedby="nameCardHelp" aria-label="First name" class="form-control"
                                    type="text">
                         </div>
+                        <small class="form-text text-muted" id="emailHelp">Full name as displayed on card</small>
                     </div>
                     <div class="col">
                         <label style="font-weight: bold">Credit card number</label>
@@ -143,6 +166,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-3">
                         <label style="font-weight: bold">Expiration</label>
