@@ -1,31 +1,40 @@
-const PROPERTY_PREFIX = "_";
-
 function CRUDProvider() {
     this.read = function () {
         return JSON.stringify(this);
     };
     this.update = function (jsonString) {
-
+        let dictParameters = JSON.parse(jsonString);
+        for (let iterator in this) {
+            // noinspection JSUnfilteredForInLoop
+            if (this.hasOwnProperty(iterator)
+                && dictParameters.hasOwnProperty(iterator)
+                && typeof this[iterator] !== "function") {
+                // noinspection JSUnfilteredForInLoop
+                this[iterator] = dictParameters[iterator];
+            }
+        }
+        return JSON.stringify(this);
     };
-    this.delete = function (jsonString) {
-
+    this.delete = function (instance) {
+        let stateDeleteObject = JSON.stringify(instance);
+        delete this.base;
+        return stateDeleteObject;
     };
 }
 
-/**
- * So, static method for create object of class, w/o inheritance :'(
- */
 CRUDProvider.create = function (jsonString, internalClass) {
-    let dictComputer = JSON.parse(jsonString);
+    /**
+     * So, static method for create object of class, w/o class inheritance for function definitions :'(
+     */
+    let dictParameters = JSON.parse(jsonString);
     let instance = new internalClass();
     for (let iterator in instance) {
-        console.log(iterator);
         // noinspection JSUnfilteredForInLoop
-        let attributeName = `${PROPERTY_PREFIX}${iterator}`;
-        if (instance.hasOwnProperty(attributeName)
+        if (instance.hasOwnProperty(iterator)
+            && dictParameters.hasOwnProperty(iterator)
             && typeof instance[iterator] !== "function") {
             // noinspection JSUnfilteredForInLoop
-            instance[attributeName] = dictComputer[iterator];
+            instance[iterator] = dictParameters[iterator];
         }
     }
     return instance;
@@ -33,66 +42,42 @@ CRUDProvider.create = function (jsonString, internalClass) {
 
 function Computer() {
     CRUDProvider.call(this);
-    this._quantityCores = 1;
-    this._processorType = "";
-    this._frequency = 0.0;
-    this._availabilityHyperThreading = false;
-    this._architectureBitDepth = "AMD64";
-    this._manufacturer = "";
-    this._sizeBiteRAM = 0;
 
     Object.defineProperties(this, {
             quantityCores: {
-                value: 1,
+                enumerable: true,
                 writable: true,
+                value: 1,
             },
-            processorType: {
-                get: function () {
-                    return this._processorType;
-                },
-                set: function (value) {
-                    this._processorType = value;
-                }
-            },
+        processorType: {
+            enumerable: true,
+            writable: true,
+            value: "",
+        },
             frequency: {
-                get: function () {
-                    return this._frequency;
-                },
-                set: function (value) {
-                    this._frequency = value;
-                }
+                enumerable: true,
+                writable: true,
+                value: 0.0,
             },
             availabilityHyperThreading: {
-                get: function () {
-                    return this._availabilityHyperThreading;
-                },
-                set: function (value) {
-                    this._availabilityHyperThreading = value;
-                }
+                enumerable: true,
+                writable: true,
+                value: false,
             },
             architectureBitDepth: {
-                get: function () {
-                    return this._architectureBitDepth;
-                },
-                set: function (value) {
-                    this._architectureBitDepth = value;
-                }
+                enumerable: true,
+                writable: true,
+                value: "AMD64",
             },
             manufacturer: {
-                get: function () {
-                    return this._manufacturer;
-                },
-                set: function (value) {
-                    this._manufacturer = value;
-                }
+                enumerable: true,
+                writable: true,
+                value: "",
             },
             sizeBiteRAM: {
-                get: function () {
-                    return this._sizeBiteRAM;
-                },
-                set: function (value) {
-                    this._sizeBiteRAM = value;
-                }
+                enumerable: true,
+                writable: true,
+                value: 0,
             },
         }
     );
@@ -107,14 +92,13 @@ Computer.create = function (jsonString) {
 function ComputingServer() {
     Computer.call(this);
 
-    this.quantityClients = 0;
-
-    this.getQuantityClients = function () {
-        return this.quantityClients;
-    };
-    this.setQuantityClients = function (value) {
-        this.quantityClients = value;
-    }
+    Object.defineProperties(this, {
+        quantityClients: {
+            enumerable: true,
+            writable: true,
+            value: 0,
+        },
+    });
 }
 
 ComputingServer.create = function (jsonString) {
@@ -124,14 +108,13 @@ ComputingServer.create = function (jsonString) {
 function Ultrabook() {
     Computer.call(this);
 
-    this.batteryCapacity = 0;
-
-    this.getBatteryCapacity = function () {
-        return this.batteryCapacity;
-    };
-    this.setBatteryCapacity = function (value) {
-        this.batteryCapacity = value;
-    }
+    Object.defineProperties(this, {
+        batteryCapacity: {
+            enumerable: true,
+            writable: true,
+            value: 0,
+        },
+    });
 }
 
 Ultrabook.create = function (jsonString) {
