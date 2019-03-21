@@ -1,26 +1,27 @@
 function CRUDProvider() {
-    this.read = function () {
-        return JSON.stringify(this);
-    };
-    this.update = function (jsonString) {
-        let dictParameters = JSON.parse(jsonString);
-        for (let iterator in this) {
-            // noinspection JSUnfilteredForInLoop
-            if (this.hasOwnProperty(iterator)
-                && dictParameters.hasOwnProperty(iterator)
-                && typeof this[iterator] !== "function") {
-                // noinspection JSUnfilteredForInLoop
-                this[iterator] = dictParameters[iterator];
-            }
-        }
-        return JSON.stringify(this);
-    };
-    this.delete = function (instance) {
-        let stateDeleteObject = JSON.stringify(instance);
-        delete this.base;
-        return stateDeleteObject;
-    };
 }
+
+CRUDProvider.prototype.read = function () {
+    return JSON.stringify(this);
+};
+CRUDProvider.prototype.update = function (jsonString) {
+    let dictParameters = JSON.parse(jsonString);
+    for (let iterator in this) {
+        // noinspection JSUnfilteredForInLoop
+        if (this.hasOwnProperty(iterator)
+            && dictParameters.hasOwnProperty(iterator)
+            && typeof this[iterator] !== "function") {
+            // noinspection JSUnfilteredForInLoop
+            this[iterator] = dictParameters[iterator];
+        }
+    }
+    return JSON.stringify(this);
+};
+CRUDProvider.prototype.delete = function (instance) {
+    let stateDeleteObject = JSON.stringify(instance);
+    delete this;
+    return stateDeleteObject;
+};
 
 CRUDProvider.create = function (jsonString, internalClass) {
     /**
@@ -41,7 +42,7 @@ CRUDProvider.create = function (jsonString, internalClass) {
 };
 
 function Computer() {
-    CRUDProvider.call(this);
+    CRUDProvider.apply(this, arguments);
 
     Object.defineProperties(this, {
             quantityCores: {
@@ -49,11 +50,11 @@ function Computer() {
                 writable: true,
                 value: 1,
             },
-        processorType: {
-            enumerable: true,
-            writable: true,
-            value: "",
-        },
+            processorType: {
+                enumerable: true,
+                writable: true,
+                value: "",
+            },
             frequency: {
                 enumerable: true,
                 writable: true,
@@ -88,7 +89,7 @@ Computer.create = function (jsonString) {
 };
 
 function ComputingServer() {
-    Computer.call(this);
+    Computer.apply(this, arguments);
 
     Object.defineProperties(this, {
         quantityClients: {
@@ -104,7 +105,7 @@ ComputingServer.create = function (jsonString) {
 };
 
 function Ultrabook() {
-    Computer.call(this);
+    Computer.apply(this, arguments);
 
     Object.defineProperties(this, {
         batteryCapacity: {
