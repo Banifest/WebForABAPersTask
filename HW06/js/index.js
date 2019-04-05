@@ -1,31 +1,29 @@
-function CRUDProvider() {
-    this.read = function () {
-        return JSON.stringify(this);
-    };
-    this.update = function (jsonString) {
-        let dictParameters = JSON.parse(jsonString);
-        for (let iterator in this) {
+const CRUDProvider = function () {
+};
+
+CRUDProvider.prototype.read = function () {
+    return JSON.stringify(this);
+};
+CRUDProvider.prototype.update = function (jsonString) {
+    let dictParameters = JSON.parse(jsonString);
+    for (let iterator in this) {
+        // noinspection JSUnfilteredForInLoop
+        if (this.hasOwnProperty(iterator)
+            && dictParameters.hasOwnProperty(iterator)
+            && typeof this[iterator] !== "function") {
             // noinspection JSUnfilteredForInLoop
-            if (this.hasOwnProperty(iterator)
-                && dictParameters.hasOwnProperty(iterator)
-                && typeof this[iterator] !== "function") {
-                // noinspection JSUnfilteredForInLoop
-                this[iterator] = dictParameters[iterator];
-            }
+            this[iterator] = dictParameters[iterator];
         }
-        return JSON.stringify(this);
-    };
-    this.delete = function (instance) {
-        let stateDeleteObject = JSON.stringify(instance);
-        delete this.base;
-        return stateDeleteObject;
-    };
-}
+    }
+    return JSON.stringify(this);
+};
+CRUDProvider.prototype.delete = function (instance) {
+    let stateDeleteObject = JSON.stringify(instance);
+    delete this;
+    return stateDeleteObject;
+};
 
 CRUDProvider.create = function (jsonString, internalClass) {
-    /**
-     * So, static method for create object of class, w/o class inheritance for function definitions :'(
-     */
     let dictParameters = JSON.parse(jsonString);
     let instance = new internalClass();
     for (let iterator in instance) {
@@ -40,20 +38,19 @@ CRUDProvider.create = function (jsonString, internalClass) {
     return instance;
 };
 
-function Computer(data) {
-    CRUDProvider.call(this);
-
+const Computer = function (data) {
+    CRUDProvider.apply(this, arguments);
     Object.defineProperties(this, {
             quantityCores: {
                 enumerable: true,
                 writable: true,
                 value: 1,
             },
-        processorType: {
-            enumerable: true,
-            writable: true,
-            value: "",
-        },
+            processorType: {
+                enumerable: true,
+                writable: true,
+                value: "",
+            },
             frequency: {
                 enumerable: true,
                 writable: true,
@@ -90,14 +87,15 @@ function Computer(data) {
             this[iterator] = data[iterator];
         }
     }
-}
+};
+
 
 Computer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, Computer)
 };
 
-function ComputingServer() {
-    Computer.call(this);
+const ComputingServer = function () {
+    Computer.apply(this, arguments);
 
     Object.defineProperties(this, {
         quantityClients: {
@@ -106,14 +104,14 @@ function ComputingServer() {
             value: 0,
         },
     });
-}
+};
 
 ComputingServer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, ComputingServer)
 };
 
-function Ultrabook() {
-    Computer.call(this);
+const Ultrabook = function () {
+    Computer.apply(this, arguments);
 
     Object.defineProperties(this, {
         batteryCapacity: {
@@ -122,8 +120,19 @@ function Ultrabook() {
             value: 0,
         },
     });
-}
+};
 
 Ultrabook.create = function (jsonString) {
     return CRUDProvider.create(jsonString, Ultrabook)
 };
+
+
+$.ajax(
+    {
+        url: "http://195.50.2.67:2403/alexmartyniuk/",
+        contentType: "application/json",
+        data: Computer
+    }
+);
+
+

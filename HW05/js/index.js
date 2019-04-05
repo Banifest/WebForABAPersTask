@@ -1,5 +1,5 @@
-function CRUDProvider() {
-}
+const CRUDProvider = function () {
+};
 
 CRUDProvider.prototype.read = function () {
     return JSON.stringify(this);
@@ -24,9 +24,6 @@ CRUDProvider.prototype.delete = function (instance) {
 };
 
 CRUDProvider.create = function (jsonString, internalClass) {
-    /**
-     * So, static method for create object of class, w/o class inheritance for function definitions :'(
-     */
     let dictParameters = JSON.parse(jsonString);
     let instance = new internalClass();
     for (let iterator in instance) {
@@ -41,9 +38,8 @@ CRUDProvider.create = function (jsonString, internalClass) {
     return instance;
 };
 
-function Computer() {
+let Computer = function (data) {
     CRUDProvider.apply(this, arguments);
-
     Object.defineProperties(this, {
             quantityCores: {
                 enumerable: true,
@@ -82,7 +78,17 @@ function Computer() {
             },
         }
     );
-}
+    for (let iterator in this) {
+        // noinspection JSUnfilteredForInLoop
+        if (this.hasOwnProperty(iterator)
+            && data.hasOwnProperty(iterator)
+            && typeof this[iterator] !== "function") {
+            // noinspection JSUnfilteredForInLoop
+            this[iterator] = data[iterator];
+        }
+    }
+};
+
 
 Computer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, Computer)
