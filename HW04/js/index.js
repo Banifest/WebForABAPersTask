@@ -96,9 +96,10 @@ Computer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, Computer)
 };
 
-function ComputingServer() {
+function ComputingServer(data) {
     Computer.call(this);
 
+    const QUANTITY_CLIENTS = "quantityClients";
     Object.defineProperties(this, {
         quantityClients: {
             enumerable: true,
@@ -106,15 +107,20 @@ function ComputingServer() {
             value: 0,
         },
     });
+
+    if (this.hasOwnProperty(QUANTITY_CLIENTS)) {
+        this[QUANTITY_CLIENTS] = data[QUANTITY_CLIENTS];
+    }
 }
 
 ComputingServer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, ComputingServer)
 };
 
-function Ultrabook() {
+function Ultrabook(data) {
     Computer.call(this);
 
+    const BATTERY_CAPACITY = "batteryCapacity";
     Object.defineProperties(this, {
         batteryCapacity: {
             enumerable: true,
@@ -122,6 +128,9 @@ function Ultrabook() {
             value: 0,
         },
     });
+    if (this.hasOwnProperty(BATTERY_CAPACITY)) {
+        this[BATTERY_CAPACITY] = data[BATTERY_CAPACITY];
+    }
 }
 
 Ultrabook.create = function (jsonString) {

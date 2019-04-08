@@ -88,7 +88,8 @@ let Computer = function (data) {
         }
     }
 };
-
+Computer.prototype = Object.create(CRUDProvider.prototype);
+Computer.prototype.constructor = CRUDProvider;
 
 Computer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, Computer)
@@ -97,6 +98,7 @@ Computer.create = function (jsonString) {
 function ComputingServer() {
     Computer.apply(this, arguments);
 
+    const QUANTITY_CLIENTS = "quantityClients";
     Object.defineProperties(this, {
         quantityClients: {
             enumerable: true,
@@ -104,15 +106,23 @@ function ComputingServer() {
             value: 0,
         },
     });
+
+    if (data.hasOwnProperty(QUANTITY_CLIENTS)) {
+        this[QUANTITY_CLIENTS] = data[QUANTITY_CLIENTS];
+    }
 }
 
+ComputingServer.prototype = Object.create(Computer.prototype);
+ComputingServer.prototype.constructor = Computer;
 ComputingServer.create = function (jsonString) {
     return CRUDProvider.create(jsonString, ComputingServer)
 };
 
+
 function Ultrabook() {
     Computer.apply(this, arguments);
 
+    const BATTERY_CAPACITY = "batteryCapacity";
     Object.defineProperties(this, {
         batteryCapacity: {
             enumerable: true,
@@ -120,8 +130,13 @@ function Ultrabook() {
             value: 0,
         },
     });
+    if (data.hasOwnProperty(BATTERY_CAPACITY)) {
+        this[BATTERY_CAPACITY] = data[BATTERY_CAPACITY];
+    }
 }
 
+Ultrabook.prototype = Object.create(Computer.prototype);
+Ultrabook.prototype.constructor = Computer;
 Ultrabook.create = function (jsonString) {
     return CRUDProvider.create(jsonString, Ultrabook)
 };

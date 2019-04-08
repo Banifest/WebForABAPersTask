@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 6</title>
+    <script rel="script" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script rel="script" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script defer rel="script" src="js/index.js"></script>
+</head>
+<body>
+
+<div class="accordion" id="accordionComputer">
+    <div class="card">
+        <div class="card-header" id="headingCreate">
+            <h5 class="mb-0">
+                <button aria-controls="headingCreate" aria-expanded="true" class="btn btn-link"
+                        data-target="#collapseCreate"
+                        data-toggle="collapse" type="button">
+                    Create Computer
+                </button>
+            </h5>
+        </div>
+        <div aria-labelledby="headingCreate" class="collapse show" data-parent="#accordionComputer" id="collapseCreate">
+            <div class="card-body">
+                <form id="computerCreate">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <label for="quantityCores">Quantity of cores:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="processorType">Type of CPU:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="frequency">Frequency of CPU MHz:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="availabilityHyperThreading">Supporting technology Hyper
+                                    Treading:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="architectureBitDepth">Type of architecture:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="manufacturer">Manufacturer:</label>
+                            </div>
+                            <div class="col">
+                                <label for="sizeBiteRAM">Size of RAM Bite:</label>
+                            </div>
+                            <div class="col">
+                                <label for="submitCreate"></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" id="quantityCores" required type="number" value="1"/>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="processorType" required type="text" value=" "/>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="frequency" required type="number" value="100"/>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="availabilityHyperThreading" required type="checkbox"/>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="architectureBitDepth" required type="text"
+                                       value="AMD64"/>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="manufacturer" required type="text" value="Intel"/>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="sizeBiteRAM" required type="number" value="1000"/>
+                            </div>
+                            <div class="col">
+                                <input class="btn btn-primary" id="submitCreate" required type="button" value="Create">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingRead">
+            <h5 class="mb-0">
+                <button aria-controls="headingRead" aria-expanded="true" class="btn btn-link"
+                        data-target="#collapseRead"
+                        data-toggle="collapse" type="button">
+                    Change computer
+                </button>
+            </h5>
+        </div>
+        <div aria-labelledby="headingRead" class="collapse" data-parent="#collapseRead" id="collapseRead">
+            <div class="card-body">
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <label for="quantityCores">Quantity of cores:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="processorType">Type of CPU:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="frequency">Frequency of CPU MHz:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="availabilityHyperThreading">Supporting technology Hyper
+                                    Treading:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="architectureBitDepth">Type of architecture:</label><br>
+                            </div>
+                            <div class="col">
+                                <label for="manufacturer">Manufacturer:</label>
+                            </div>
+                            <div class="col">
+                                <label for="sizeBiteRAM">Size of RAM Bite:</label>
+                            </div>
+                            <div class="col">
+                                <label for="submitCreate"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="computersContainer">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
