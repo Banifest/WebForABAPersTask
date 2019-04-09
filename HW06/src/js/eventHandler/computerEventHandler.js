@@ -1,5 +1,7 @@
-// module.exports =(computerAPI) => {
-//     $("#submitCreate")[0].addEventListener(
-//         "click", computerAPI.create()
-//     );
-// };
+import $ from 'jquery';
+
+export default (controller) => {
+    $("#submitCreate")[0].addEventListener(
+        "click", controller.create
+    );
+};
