@@ -44,12 +44,12 @@ class PrototypeAPI {
         );
     }
 
-    readAll() {
+    readAll(cb) {
         $.ajax(this.link, {
                 method: "GET",
                 contentType: "application/json",
                 success: function (resultData, textStatus, jqXHR) {
-                    return ({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                    cb({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
                 }
             }
         );

@@ -2,9 +2,15 @@ import CRUDProvider from './crudProvider';
 
 class Computer extends CRUDProvider {
     constructor(data) {
-
         super();
+
+        data = data || {};
         Object.defineProperties(this, {
+                id: {
+                    enumerable: true,
+                    writable: true,
+                    value: 1,
+                },
                 quantityCores: {
                     enumerable: true,
                     writable: true,

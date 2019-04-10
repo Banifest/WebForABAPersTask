@@ -11,20 +11,23 @@ class ComputerDrawer {
     <div class="col">
         <input class="form-control" 
                id="${computer.id}quantityCores" 
-               required 
+               required readonly
                type="number" 
                value="${computer.quantityCores}"/>
     </div>
     <div class="col">
          <input class="form-control" 
                id="${computer.id}processorType" 
-               required type="text" value="${computer.processorType}"/>
+               required readonly
+               type="text" 
+               value="${computer.processorType}"/>
     </div>
     <div class="col">
         <input 
             class="form-control" 
             id="${computer.id}frequency" 
-            required type="number" 
+            required readonly 
+            type="number" 
             value="${computer.frequency}"/>
     </div>
     <div class="col">
@@ -32,41 +35,49 @@ class ComputerDrawer {
             class="form-control" 
             id="${computer.id}availabilityHyperThreading" 
             ${"checked" ? computer.availabilityHyperThreading : ""} 
-            required type="checkbox"/>
+            required disabled
+            type="checkbox"/>
     </div>
     <div class="col">
         <input class="form-control" 
                id="${computer.id}architectureBitDepth" 
-               required 
+               required readonly 
                type="text"
                value="${computer.architectureBitDepth}"/>
     </div>
     <div class="col">
         <input class="form-control" 
                id="${computer.id}manufacturer" 
-               required type="text" 
+               required readonly 
+               type="text" 
                value="${computer.manufacturer}"/>
     </div>
     <div class="col">
         <input class="form-control" 
                id="${computer.id}sizeBiteRAM" 
-               required type="number" 
+               required readonly
+               type="number" 
                value="${computer.sizeBiteRAM}"/>
     </div>
     <div class="col">
         <input class="btn btn-primary" 
-               id="${computer.id}changeButton" 
-               required type="button" 
+               id="${computer.id}updateButton" 
+               required readonly
+               type="button" 
                value="change">
-               
-        <input class="btn btn-primary" 
+    </div>
+    <div class="col">           
+        <input class="btn btn-bad" 
                id="${computer.id}deleteButton" 
-               required type="button" 
+               required readonly
+               type="button" 
                value="delete">
-               
-        <input class="btn btn-primary" 
+    </div>
+    <div class="col">           
+        <input class="btn btn-warning" 
                id="${computer.id}editButton" 
-               required type="button" 
+               required readonly
+               type="button" 
                value="edit"
                readonly>
     </div>
