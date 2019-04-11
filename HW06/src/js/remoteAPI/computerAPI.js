@@ -11,27 +11,27 @@ class ComputerAPI extends PrototypeAPI {
         this.read = this.read.bind(this);
     }
 
-    create(data) {
+    create(cb) {
         return super.create({
             quantityCores: $("#quantityCores")[0].value,
             processorType: $("#processorType")[0].value,
             frequency: $("#frequency")[0].value,
-            availabilityHyperThreading: $("#availabilityHyperThreading")[0].value,
+            availabilityHyperThreading: $("#availabilityHyperThreading")[0].checked,
             architectureBitDepth: $("#architectureBitDepth")[0].value,
             manufacturer: $("#manufacturer")[0].value,
             sizeBiteRAM: $("#sizeBiteRAM")[0].value,
-        });
+        }, cb);
     }
 
-    update(id, data) {
+    update(id) {
         return super.update(id, {
-            quantityCores: $("#quantityCores")[0].value,
-            processorType: $("#processorType")[0].value,
-            frequency: $("#frequency")[0].value,
-            availabilityHyperThreading: $("#availabilityHyperThreading")[0].value,
-            architectureBitDepth: $("#architectureBitDepth")[0].value,
-            manufacturer: $("#manufacturer")[0].value,
-            sizeBiteRAM: $("#sizeBiteRAM")[0].value,
+            quantityCores: $(`#${id}quantityCores`)[0].value,
+            processorType: $(`#${id}processorType`)[0].value,
+            frequency: $(`#${id}frequency`)[0].value,
+            availabilityHyperThreading: $(`#${id}availabilityHyperThreading`)[0].checked,
+            architectureBitDepth: $(`#${id}architectureBitDepth`)[0].value,
+            manufacturer: $(`#${id}manufacturer`)[0].value,
+            sizeBiteRAM: $(`#${id}sizeBiteRAM`)[0].value,
         });
     }
 

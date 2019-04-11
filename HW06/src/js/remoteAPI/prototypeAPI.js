@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-const API_LINK = "http://195.50.2.67:2403/";
-const OBJECT_LINK = "alexmartyniuk/";
+const API_LINK = "http://195.50.2.67:2403";
+const OBJECT_LINK = "/alexmartyniuk";
 
 class PrototypeAPI {
     constructor(objectPrototype, apiPrototype, apiLink = API_LINK, objectLink = OBJECT_LINK) {
@@ -16,15 +16,21 @@ class PrototypeAPI {
         this.read = this.read.bind(this);
     }
 
-    create(data) {
+    create(data, cb) {
         let APIContext = this;
         $.ajax(this.link, {
                 method: "POST",
                 contentType: "application/json",
-                data: (new this.objectPrototype(data)).read(),
+                data: JSON.stringify(data),
                 success: function (resultData, textStatus, jqXHR) {
                     APIContext.objects[resultData.id] = (new APIContext.objectPrototype(data));
-                    return ({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                    cb({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                },
+                error: (jqXHR, textStatus, errorThrown) => {
+                    alert(`
+                    ${textStatus}
+                    ${errorThrown}
+                    `)
                 }
             }
         );
@@ -39,6 +45,12 @@ class PrototypeAPI {
                 success: function (resultData, textStatus, jqXHR) {
                     APIContext.objects[resultData.id] = (new APIContext.objectPrototype(data));
                     return ({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                },
+                error: (jqXHR, textStatus, errorThrown) => {
+                    alert(`
+                    ${textStatus}
+                    ${errorThrown}
+                    `)
                 }
             }
         );
@@ -50,6 +62,12 @@ class PrototypeAPI {
                 contentType: "application/json",
                 success: function (resultData, textStatus, jqXHR) {
                     cb({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                },
+                error: (jqXHR, textStatus, errorThrown) => {
+                    alert(`
+                    ${textStatus}
+                    ${errorThrown}
+                    `)
                 }
             }
         );
@@ -61,6 +79,12 @@ class PrototypeAPI {
                 contentType: "application/json",
                 success: function (resultData, textStatus, jqXHR) {
                     return ({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                },
+                error: (jqXHR, textStatus, errorThrown) => {
+                    alert(`
+                    ${textStatus}
+                    ${errorThrown}
+                    `)
                 }
             }
         );
@@ -74,6 +98,12 @@ class PrototypeAPI {
                 success: function (resultData, textStatus, jqXHR) {
                     APIContext.objects[resultData.id] = undefined;
                     return ({data: resultData, textStatus: textStatus, jqXHR: jqXHR});
+                },
+                error: (jqXHR, textStatus, errorThrown) => {
+                    alert(`
+                    ${textStatus}
+                    ${errorThrown}
+                    `)
                 }
             }
         );

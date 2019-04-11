@@ -3,11 +3,15 @@ import Computer from "../models/computer";
 
 class ComputerDrawer {
     constructor() {
+        this.drawerObjectPropertyNames = Object.getOwnPropertyNames(new Computer());
+        this.drawerObjectPropertyNames.push('updateButton');
+        this.drawerObjectPropertyNames.splice(this.drawerObjectPropertyNames.indexOf('id'), 1);
+        this.changeEditMode = this.changeEditMode.bind(this);
     }
 
     static addObjectToList(computer, listDiv) {
-        listDiv.innerHTML += `
-<div class="row">
+        listDiv.insertAdjacentHTML('beforeend', `
+<div id="${computer.id}" class="row">
     <div class="col">
         <input class="form-control" 
                id="${computer.id}quantityCores" 
@@ -34,7 +38,7 @@ class ComputerDrawer {
         <input 
             class="form-control" 
             id="${computer.id}availabilityHyperThreading" 
-            ${"checked" ? computer.availabilityHyperThreading : ""} 
+            ${ computer.availabilityHyperThreading ? "checked" : ""} 
             required disabled
             type="checkbox"/>
     </div>
@@ -62,7 +66,7 @@ class ComputerDrawer {
     <div class="col">
         <input class="btn btn-primary" 
                id="${computer.id}updateButton" 
-               required readonly
+               required readonly disabled
                type="button" 
                value="change">
     </div>
@@ -82,14 +86,23 @@ class ComputerDrawer {
                readonly>
     </div>
 </div>
-        `;
+        `);
     }
 
-    static changeEditMode(id) {
-        for (let iter of Computer) {
-            let computerElement = $(`${id}${iter}`)[0];
-            computerElement.readOnly = !computerElement.readOnly();
+    changeEditMode(id) {
+        for (let iter of this.drawerObjectPropertyNames) {
+            let computerElement = $(`#${id}${iter}`)[0];
+            computerElement.readOnly = !computerElement.readOnly;
+            if (computerElement.type === 'button'
+                || computerElement.type === 'checkbox') {
+
+                computerElement.disabled = !computerElement.disabled;
+            }
         }
+    }
+
+    static deleteObjectFromList(id) {
+        $(`#${id}`)[0].outerHTML = "";
     }
 }
 
