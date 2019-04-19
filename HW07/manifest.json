@@ -1,0 +1,62 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "sap.ui.hw07",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "phoneRemoteService": {
+        "uri": "https://services.odata.org/V4/(S(i2qsmldwlbxcrupw01rxfa3l))/TripPinServiceRW/Photos/",
+        "type": "OData",
+        "settings": {
+          "odataVerision": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "sap.ui.hw07.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.ui.hw07.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "invoice": {
+      "dataSource": "invoiceRemote"
+    }
+  }
+}

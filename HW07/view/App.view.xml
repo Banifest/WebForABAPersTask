@@ -1,0 +1,24 @@
+<mvc:View
+        controllerName="sap.ui.hw07.controller.App"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        displayBlock="true">
+    <Shell>
+        <App class="myAppDemoWT">
+            <pages>
+                <Page title="{i18n>homePageTitle}">
+                    <headerContent>
+                        <Button
+                                icon="sap-icon://hello-world"
+                                press=".onOpenDialog"/>
+                    </headerContent>
+
+                    <content>
+                        <mvc:XMLView viewName="sap.ui.hw07.view.PhonePanel"/>
+                        <mvc:XMLView viewName="sap.ui.hw07.view.InvoiceList"/>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
