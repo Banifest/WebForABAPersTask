@@ -7,6 +7,18 @@
             class="sapUiResponsiveMargin"
             width="auto" >
         <content>
+            <List
+                    headerText="{i18n>invoiceListTitle}"
+                    class="sapUiResponsiveMargin"
+                    width="auto"
+                    items="{path: /photos, templateShareable:false}" >
+                <items>
+                    <StandartListItem
+                        title="{Id}"
+                        desction="{Id}"
+                    />
+                </items>
+            </List>
         </content>
     </Panel>
 </mvc:View>
