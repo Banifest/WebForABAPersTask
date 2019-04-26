@@ -9,7 +9,6 @@ sap.ui.define([
                 method: "GET",
                 contentType: "application/json",
             });
-            console.log(data.value);
             let oViewmodel = new JSONModel({photos: data.value});
             this.getView().setModel(oViewmodel);
 

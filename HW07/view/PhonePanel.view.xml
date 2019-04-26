@@ -8,14 +8,14 @@
             width="auto" >
         <content>
             <List
-                    headerText="{i18n>invoiceListTitle}"
+                    headerText="{i18n>phonePanelTitle}"
                     class="sapUiResponsiveMargin"
                     width="auto"
-                    items="{path: /photos, templateShareable:false}" >
+                    items="{path: '/photos' }" >
                 <items>
-                    <StandartListItem
-                        title="{Id}"
-                        desction="{Id}"
+                    <StandardListItem
+                        title="{Name}"
+                        counter="{Id}"
                     />
                 </items>
             </List>
