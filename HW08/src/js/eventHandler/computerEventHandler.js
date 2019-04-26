@@ -2,11 +2,9 @@ import $ from 'jquery';
 import ComputerDrawer from "../drawer/computerDrawer";
 import Computer from "../models/computer";
 
-export default (controller) => {
+export default async (controller) => {
 
     const computerDrawer = new ComputerDrawer();
-    //ААААА, короче сделаю плохо, но быстрее. Это просто 6 же домашка
-
     window.addEventListener(
         'load', () => {
             $("#submitCreate")[0].addEventListener(
@@ -57,11 +55,6 @@ export default (controller) => {
                     );
                 }
             });
-
-
-            //
-            // //add events for buttons
-
         }
     );
 
