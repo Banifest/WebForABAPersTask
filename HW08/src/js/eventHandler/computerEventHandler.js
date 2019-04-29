@@ -2,7 +2,7 @@ import $ from 'jquery';
 import ComputerDrawer from "../drawer/computerDrawer";
 import Computer from "../models/computer";
 
-export default async (controller) => {
+export default (controller) => {
 
     const computerDrawer = new ComputerDrawer();
     window.addEventListener(

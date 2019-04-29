@@ -80,10 +80,10 @@ class ComputerDrawer {
     <div class="col">           
         <input class="btn btn-warning" 
                id="${computer.id}editButton" 
-               required readonly
+               required
                type="button" 
                value="edit"
-               readonly>
+        />
     </div>
 </div>
         `);
