@@ -1,0 +1,35 @@
+<mvc:View
+        controllerName="sap.ui.demo.db.controller.App"
+        xmlns="sap.m"
+        xmlns:l="sap.ui.layout"
+        xmlns:mvc="sap.ui.core.mvc">
+    <Panel headerText="{i18n>peopleListTitle}" class="sapUiResponsiveMargin" width="auto">
+        <content>
+            <List headerText="{i18n>peopleListTitle}" items="{peoples>/value}">
+                <items>
+                    <ObjectListItem
+                            title="{peoples>UserName} ||| {peoples>FirstName} {peoples>MiddleName} {peoples>LastName}"
+                            number="{
+							    parts: [
+								    {path: 'peoples>FirstName'},
+								    {path: '/Gender'}
+							    ],
+							    formatOptions: { showMeasure: false }
+						    }"
+                            numberUnit="{/currencyCode}">
+                        <attributes>
+                            <ObjectAttribute title="{i18n>gender}" text="{peoples>Gender}"/>
+                            <ObjectAttribute title="{i18n>age}" text="{peoples>Age}"/>
+                            <ObjectAttribute title="{i18n>emails}" text="{peoples>Emails}"/>
+                            <ObjectAttribute title="{i18n>favoriteFeature}" text="{peoples>FavoriteFeature}"/>
+                            <ObjectAttribute title="{i18n>addressInfo}" text="{peoples>AddressInfo>Address}"/>
+<!--                            <ObjectAttribute>-->
+<!--                                <text>Test</text>-->
+<!--                            </ObjectAttribute>-->
+                        </attributes>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+    </Panel>
+</mvc:View>

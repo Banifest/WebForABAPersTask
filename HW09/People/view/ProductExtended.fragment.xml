@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <ObjectListItem
+            id="productExtended"
+            title="{value>UserName} ({products>QuantityPerUnit})"
+            number="{
+			    parts: [
+				    {path: 'value>UserName'},
+				    {path: '/currencyCode'}
+			    ],
+			    type: 'sap.ui.model.type.Currency',
+			    formatOptions : {
+				    showMeasure : false
+			    }
+		    }"
+            type="Active"
+            numberUnit="{/currencyCode}"
+            press=".onItemSelected">
+    </ObjectListItem>
+</core:FragmentDefinition>
